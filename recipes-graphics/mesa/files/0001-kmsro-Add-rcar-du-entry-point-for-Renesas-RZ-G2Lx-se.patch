@@ -1,0 +1,26 @@
+diff --git a/src/gallium/targets/dri/meson.build b/src/gallium/targets/dri/meson.build
+index 2d232e51b3c27d4b421a087bdbbd2e84dbc2fbeb..f4d61f7b254086f2bcfba117a2024efa926c973b 100644
+--- a/src/gallium/targets/dri/meson.build
++++ b/src/gallium/targets/dri/meson.build
+@@ -83,6 +83,8 @@ foreach d : [[with_gallium_kmsro, [
+                'mi0283qt_dri.so',
+                'mxsfb-drm_dri.so',
+                'pl111_dri.so',
++               'rcar-du_dri.so',
++               'rzg2l-du_dri.so',
+                'repaper_dri.so',
+                'rockchip_dri.so',
+                'st7586_dri.so',
+diff --git a/src/gallium/targets/dri/target.c b/src/gallium/targets/dri/target.c
+index 30c9ee9a4da89dfffce4739e17bd9e6bf52d9aa5..fb5798581dbf665287831fe3b65dbcb82c6f95a6 100644
+--- a/src/gallium/targets/dri/target.c
++++ b/src/gallium/targets/dri/target.c
+@@ -112,6 +112,8 @@ DEFINE_LOADER_DRM_ENTRYPOINT(meson)
+ DEFINE_LOADER_DRM_ENTRYPOINT(mi0283qt)
+ DEFINE_LOADER_DRM_ENTRYPOINT(mxsfb_drm)
+ DEFINE_LOADER_DRM_ENTRYPOINT(pl111)
++DEFINE_LOADER_DRM_ENTRYPOINT(rcar_du)
++DEFINE_LOADER_DRM_ENTRYPOINT(rzg2l_du)
+ DEFINE_LOADER_DRM_ENTRYPOINT(repaper)
+ DEFINE_LOADER_DRM_ENTRYPOINT(rockchip)
+ DEFINE_LOADER_DRM_ENTRYPOINT(st7586)
