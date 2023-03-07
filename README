@@ -1,0 +1,46 @@
+This README file contains information on the contents of the meta-rz-panfrost layer.
+
+The meta-rz-panfrost layer enables the VLP to take advantage of the open-source panfrost graphics drivers.
+This has been currently tested on the RZ/G2L SoC with the rz-community-bsp.
+
+Please see the corresponding sections below for details.
+
+Table of Contents
+=================
+
+  I. Adding the meta-rz-panfrost layer to your build.
+ II. Modifying the image.
+III. Verifying Panfrost is working.
+
+
+I. Adding the meta-rz-panfrost layer to your build
+=================================================
+
+Run 'bitbake-layers add-layer meta-rz-panfrost'
+
+
+II. Modifying the image.
+=================================================
+
+In build/conf/local.conf, please add the following:
+	PACKAGECONFIG:append:pn-mesa = " egl kmsro panfrost"
+	IMAGE_INSTALL:append += " mesa weston kmscube glmark2"
+
+Next, build your customized image:
+	$bitbake core-image-weston
+
+
+III. Verifying Panfrost is working.
+=================================================
+
+To ensure that Panfrost is working, the kernel bootup log should show the following:
+	...
+	[    0.140409] panfrost 11840000.gpu: clock rate = 500000000
+	[    0.140456] panfrost 11840000.gpu: bus_clock rate = 200000000
+	[    0.141269] panfrost 11840000.gpu: [drm:panfrost_devfreq_init] Failed to register cooling device
+	[    0.141371] panfrost 11840000.gpu: mali-g31 id 0x7093 major 0x0 minor 0x0 status 0x0
+	[    0.141390] panfrost 11840000.gpu: features: 00000000,3fde77ff, issues: 00000000,00000400
+	[    0.141408] panfrost 11840000.gpu: Features: L2:0x070d0206 Shader:0x00000000 Tiler:0x00000209 Mem:0x1 MMU:0x00002821 AS:0xff JS:0x7
+	[    0.141425] panfrost 11840000.gpu: shader_present=0x1 l2_present=0x1
+	[    0.142475] [drm] Initialized panfrost 1.1.0 20180908 for 11840000.gpu on minor 0
+	...	
