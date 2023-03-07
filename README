@@ -22,7 +22,7 @@ Run 'bitbake-layers add-layer meta-rz-panfrost'
 II. Modifying the image.
 =================================================
 
-In build/conf/local.conf, Please add the following config for your build config.
+In build/conf/local.conf, please add the following:
 	PACKAGECONFIG_append_pn-mesa = " egl kmsro panfrost"
 	IMAGE_INSTALL_append += " mesa weston kmscube"
 
