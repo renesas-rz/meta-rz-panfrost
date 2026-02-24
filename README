@@ -1,7 +1,7 @@
 This README file contains information on the contents of the meta-rz-panfrost layer.
 
 The meta-rz-panfrost layer enables the VLP to take advantage of the open-source panfrost graphics drivers.
-This has been currently tested on the RZ/G2L SoC with the VLP 3.0.1 version. It should work on the RZ/V2L SoC.
+This has been currently tested on the RZ/G2L SoC with the VLP 3.0.1 (dunfell). It should work on the RZ/V2L SoC.
 
 Please see the corresponding sections below for details.
 
