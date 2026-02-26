@@ -1,7 +1,7 @@
 This README file contains information on the contents of the meta-rz-panfrost layer.
 
 The meta-rz-panfrost layer enables the VLP to take advantage of the open-source panfrost graphics drivers.
-This has been currently tested on the RZ/G2L SoC with the VLP 3.0.1 (dunfell). It should work on the RZ/V2L SoC.
+This has been currently tested on the RZ/G2L SoC with the VLP 4.0.1 (scarthgap). It should work on the RZ/V2L SoC. For other VLP version, please check the tags and corresponding README for instructions.
 
 Please see the corresponding sections below for details.
 
@@ -22,9 +22,8 @@ Run 'bitbake-layers add-layer meta-rz-panfrost'
 II. Modifying the image.
 =================================================
 
-In build/conf/local.conf, please add the following:
-	PACKAGECONFIG_append_pn-mesa = " egl kmsro panfrost"
-	IMAGE_INSTALL_append += " mesa weston kmscube"
+In build/conf/local.conf, add the following if you want to test panfrost:
+	IMAGE_INSTALL:append = " kmscube glmark2"
 
 Next, build your customized image:
 	$bitbake core-image-weston
